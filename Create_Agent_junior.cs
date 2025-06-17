@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace The_Agent_Game
 {
     internal class Agent_junior : Create_agent
-    {
+        
+        public override string Name { get; }
         public Sensor_Basic audio;
         private Dictionary<string, int> sensorsDict = new Dictionary<string, int>();
-        public override string Name { get; }
+        
         public Agent_junior(string name)
         {
             this.Name = name;
@@ -48,5 +49,7 @@ namespace The_Agent_Game
         {
             return sensorsDict;
         }
+
+     
     }
 }

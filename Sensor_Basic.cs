@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace The_Agent_Game
 {
+
     internal class Sensor_Basic : Sensor
     {
         public int a { get; private set; } = 0;
@@ -22,5 +23,6 @@ namespace The_Agent_Game
                 this.a++;
             }
         }
+
     }
 }
