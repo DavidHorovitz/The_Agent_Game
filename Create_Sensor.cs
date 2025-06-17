@@ -12,7 +12,6 @@ namespace The_Agent_Game
 
         public override void Activate(Dictionary<string, int> sensorsDict, List<string> user_sensor)
         {
-
         }
         public Create_Sensor(string type)
         {
