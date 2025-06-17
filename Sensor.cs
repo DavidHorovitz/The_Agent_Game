@@ -10,7 +10,7 @@ namespace The_Agent_Game
     {
         
         public abstract string Type { get; }
-        public abstract void Activate(Dictionary<string, int> sensorsDict, List<string> user_sensor);
+        public abstract void Activate(string sensor, Dictionary<string, int> sensorsDict);
         
 
     }
