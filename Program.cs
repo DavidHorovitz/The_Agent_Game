@@ -10,7 +10,7 @@ namespace The_Agent_Game
     {
         static void Main(string[] args)
         {
-
+            Game_Maneger game = new Game_Maneger();
         }
     }
 }
