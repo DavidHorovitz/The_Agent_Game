@@ -9,7 +9,7 @@ namespace The_Agent_Game
     internal class Dict_Sensors
     {
         public Dictionary<string, int> sensorsDict;
-        public void InitSensorDict(List<Create_Sensor> weaknesses)
+        public void InitSensorDict(List<Sensor_Basic> weaknesses)
         {
             sensorsDict = new Dictionary<string, int>();
             foreach (var sensor in weaknesses)
@@ -21,7 +21,7 @@ namespace The_Agent_Game
                     sensorsDict[key] = 1;
             }
         }
-        public Dict_Sensors(List<Create_Sensor> weaknesses)
+        public Dict_Sensors(List<Sensor_Basic> weaknesses)
         {
             InitSensorDict(weaknesses);
         }

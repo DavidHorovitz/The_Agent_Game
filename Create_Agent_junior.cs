@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 namespace The_Agent_Game
 {
     internal class Agent_junior : Create_agent
-        
-        public override string Name { get; }
+
+    {
         public Sensor_Basic audio;
-        private Dictionary<string, int> sensorsDict = new Dictionary<string, int>();
-        
+        private Dictionary<string, int> sensorsDictWeakness = new Dictionary<string, int>();
+        public override string Name { get; }
+
         public Agent_junior(string name)
         {
             this.Name = name;
@@ -31,15 +32,19 @@ namespace The_Agent_Game
         }
         public void Weakness_Dictionary(string sensor)
         {
-            if (sensorsDict.ContainsKey(sensor))
-                sensorsDict[sensor]++;
+
+            if (sensorsDictWeakness.ContainsKey(sensor))
+                sensorsDictWeakness[sensor]++;
             else
-                sensorsDict[sensor] = 1;
+                sensorsDictWeakness[sensor] = 1;
+
         }
         public int SumSensorValues()
         {
             int sum = 0;
-            foreach (var val in sensorsDict.Values)
+
+            foreach (var val in sensorsDictWeakness.Values)
+
             {
                 sum += val;
             }
@@ -47,9 +52,9 @@ namespace The_Agent_Game
         }
         public Dictionary<string, int> GetSensorsDict()
         {
-            return sensorsDict;
+
+            return sensorsDictWeakness;
         }
 
-     
     }
 }

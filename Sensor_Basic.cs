@@ -13,7 +13,9 @@ namespace The_Agent_Game
         public override string Type { get; }
         public Sensor_Basic(string type)
         {
-            this.Type = type;
+
+            Type = type;
+
         }
         public override void Activate(string sensor, Dictionary<string, int> sensorsDict)
         {
