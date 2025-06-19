@@ -6,21 +6,18 @@ using System.Threading.Tasks;
 
 namespace The_Agent_Game
 {
-    internal class Agent_junior : Create_agent
-
+    internal class Service
     {
+        public Service()
+        {
+            list_sensor_weakness(); 
+        }
+
         public Sensor_Basic audio;
         private Dictionary<string, int> sensorsDictWeakness = new Dictionary<string, int>();
-        public override string Name { get; }
-
-        public Agent_junior(string name)
-        {
-            this.Name = name;
-            list_sensor_weakness();
-        }
         public void list_sensor_weakness()
         {
-            this.audio = new Sensor_Basic("audio");
+            audio = new Sensor_Basic("audio");
             Sensor_Basic Viewing = new Sensor_Basic("Viewing");
             List<Sensor_Basic> sensorsList = new List<Sensor_Basic> { audio, Viewing };
             Random rnd = new Random();
@@ -55,6 +52,5 @@ namespace The_Agent_Game
 
             return sensorsDictWeakness;
         }
-
     }
 }

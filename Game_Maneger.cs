@@ -8,39 +8,37 @@ namespace The_Agent_Game
 {
     internal class Game_Maneger
     {
-        public Game_Maneger()
-        {
-            menu();
-        }
+        Service service = new Service();  
         public void menu()
         {
             Console.WriteLine("Menu \n To start press 1 \n To exit press 2");
             int input = Convert.ToInt32(Console.ReadLine());
             if (input == 1)
             {
-                Console.WriteLine("The game is starting, please enter the agent's name.");
+                Console.WriteLine("The game is starting, \nplease enter the agent's name.");
                 string name = Console.ReadLine();
                 Agent_junior Create_agent_junior = new Agent_junior(name);
-                int Initial_guess_total = Create_agent_junior.SumSensorValues();
-                int start = Initial_guess_total;
+                int Initial_guess_total = service.SumSensorValues();
+                
+                int numOfLoops = Initial_guess_total;
                 do
                 {
-                    Initial_guess_total = Create_agent_junior.SumSensorValues();
+                    Initial_guess_total = service. SumSensorValues();
                     List<string> sensor_user = new List<string>();
-                    for (int i = 0; i < start; i++)
+                    //Console.WriteLine($"Initial total = {Initial_guess_total}");
+                    for (int i = 0; i < numOfLoops; i++)
                     {
-                        Console.Write($"Enter guess {i + 1}: ");
-                        string user_guess = Console.ReadLine();
-                        sensor_user.Add(user_guess);
-                        
+                        if (Initial_guess_total != 0)
+                        {
+                            Console.Write($"Enter guess {i + 1}: ");
+                            string user_guess = Console.ReadLine();
+                            sensor_user.Add(user_guess);
+                            service.audio.Activate(sensor_user[i], service.GetSensorsDict());
+                            Console.WriteLine($"{service.audio.sumOfSensors}/{numOfLoops}");
+                            Initial_guess_total = service.SumSensorValues();
+                        }
                     }
-                    for (int i = 0; i < sensor_user.Count; i++)
-                    {
-                        Create_agent_junior.audio.Activate(sensor_user[i], Create_agent_junior.GetSensorsDict());
-                    }
-                    Console.WriteLine($"{Create_agent_junior.audio.a}/{start}");
-                    Initial_guess_total = Create_agent_junior.SumSensorValues();
-                    //Console.WriteLine("David");
+                    
                 } while (Initial_guess_total != 0);
             }
         }
